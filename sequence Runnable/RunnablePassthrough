@@ -1,0 +1,31 @@
+#passthrough keep input ass it is => prompt->passthrough->prompt
+from json import load
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from dotenv import load_dotenv
+from langchain.schema.runnable import RunnableSequence,RunnableParallel,RunnableLambda
+
+load_dotenv()
+
+def wordCount(text):
+    return len(text.split())
+prompt1=PromptTemplate(
+    template="write a joke about {topic}",
+    input_variables=['topic']
+)
+model=ChatOpenAI()
+parser=StrOutputParser()
+
+joke_gen_chain=RunnableSequence(prompt1,model,parser)
+
+
+parallel_chain=RunnableParallel(
+    'joke':joke_gen_chain,
+    'word_count':RunnableLambda(wordCount)
+    #'word_count':RunnableLambda(lambda x:len(x.split()))
+)
+
+final_chain=RunnableSequence(parallel_chain,joke_gen_chain)
+
+print(final_chain.invoke({'topic':'python'}))
