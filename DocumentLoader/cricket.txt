@@ -1,0 +1,7 @@
+Cricket is a bat-and-ball sport for two teams of eleven players,
+ played on a field with a central pitch and wickets at each end.
+  One team bats to score runs, while the other fields to stop them 
+  and dismiss batters. The objective is to score more runs than the
+   opposing team to win the match. Originating in England, it is now
+    a popular global sport
+, particularly in Commonwealth countries like Australia, India, Pakistan, and South Africa
