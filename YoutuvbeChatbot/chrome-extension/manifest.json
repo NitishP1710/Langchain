@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube AI Chat Assistant",
+    "version": "1.0",
+    "description": "AI-powered chat assistant for YouTube videos using LangChain",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "host_permissions": [
+        "*://localhost/*",
+        "*://127.0.0.1/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.youtube.com/watch?v=*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "content.css"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "popup.html",
+                "popup.js"
+            ],
+            "matches": [
+                "*://www.youtube.com/*"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "YouTube AI Chat Assistant"
+    }
+}

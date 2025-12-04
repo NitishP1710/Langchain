@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>YouTube AI Chat Assistant</title>
+  <style>
+    body {
+      width: 320px;
+      height: 230px;
+      padding: 0;
+      margin: 0;
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* same deep blue-purple theme */
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border-radius: 20px;              /* Outer curved border */
+      border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle border, no extra color */
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1); /* Soft outer glow */
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 90%;
+      padding: 20px;
+      border-radius: 16px;              /* Inner curved border */
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: float 3s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      font-size: 13px;
+      color: #e6f2ff;
+      opacity: 0.9;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .status {
+      background: linear-gradient(90deg, rgba(0,132,255,0.3), rgba(255,255,255,0.2));
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 0 8px rgba(0,132,255,0.3);
+      color: #ffffff;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .status:hover {
+      background: linear-gradient(90deg, rgba(0,212,255,0.4), rgba(255,255,255,0.3));
+      transform: scale(1.05);
+    }
+
+    .active {
+      background: linear-gradient(90deg, rgba(0,255,128,0.3), rgba(255,255,255,0.2));
+      border: 1px solid rgba(0,255,128,0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>YouTube AI Assistant</h1>
+    <p>Navigate to any YouTube video to start chatting with the AI assistant about the video content.</p>
+    <div class="status" id="status">💬 Ready to assist!</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

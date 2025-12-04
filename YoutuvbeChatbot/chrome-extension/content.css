@@ -1,0 +1,275 @@
+/* YouTube AI Chat Assistant Styles */
+#youtube-ai-chat {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 400px;
+    height: 600px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+#youtube-ai-chat .chat-header {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#youtube-ai-chat .chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#youtube-ai-chat .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#youtube-ai-chat .close-btn:hover {
+    opacity: 0.8;
+}
+
+#youtube-ai-chat .chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    border-left: 1px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+}
+
+#youtube-ai-chat .message {
+    margin-bottom: 16px;
+    animation: fadeInUp 0.3s ease;
+}
+
+#youtube-ai-chat .message.user {
+    text-align: right;
+}
+
+#youtube-ai-chat .message.bot {
+    text-align: left;
+}
+
+#youtube-ai-chat .message-header {
+    font-size: 12px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+#youtube-ai-chat .message-text {
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.user .message-text {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: black;
+}
+
+.message.bot .message-text {
+    background: white;
+    border: 1px solid #e9ecef;
+}
+
+.message.error .message-text {
+    background: #ffe6e6;
+    border: 1px solid #ff6b6b;
+    color: #d63031;
+}
+
+#youtube-ai-chat .typing-indicator {
+    opacity: 0.7;
+    font-style: italic;
+}
+
+#youtube-ai-chat .loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+#youtube-ai-chat .chat-input-container {
+    padding: 20px;
+    background: white;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #e9ecef;
+}
+
+#youtube-ai-chat #chat-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 14px;
+    outline: none;
+}
+
+#youtube-ai-chat #chat-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#youtube-ai-chat #chat-send {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#youtube-ai-chat #chat-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+#youtube-ai-chat #chat-send:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Toggle Button Styles */
+.ai-toggle-btn {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-toggle-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4);
+}
+
+.ai-toggle-btn:active {
+    transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #youtube-ai-chat {
+        width: 350px;
+        height: 500px;
+    }
+}
+
+/* Initialization Prompt Styles */
+#youtube-ai-chat .initialization-prompt {
+    text-align: center;
+    padding: 40px 20px;
+    background: #ffffff;
+}
+
+#youtube-ai-chat .initialization-prompt h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#youtube-ai-chat .initialization-prompt p {
+    margin: 0 0 25px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+#youtube-ai-chat .init-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+#youtube-ai-chat .init-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+#youtube-ai-chat .init-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* Scrollbar styling */
+#youtube-ai-chat .chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+#youtube-ai-chat .chat-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#youtube-ai-chat .chat-body::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#youtube-ai-chat .chat-body::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
